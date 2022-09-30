@@ -1,0 +1,93 @@
+title: Edgar.Welcome
+---
+Edgar: What is this!? Where are all the trick or treaters? I have the best Halloween setup on the block! 
+Hey you! Little bee, I see you there! Why don’t you feast your eyes on the most stunning Halloween show in town! Spooky spectacles!
+ Frightening fragrances! Neither in your wildest dreams, nor your most terrifying nightmares, have you experienced something so spectacular!
+-> What kind of candy?
+    Edgar: Wizz Bangs and Palo Crisps, Mekko Sticks and King sized Choco-Hoops! How could you say no? Turn that pathetic stash of candy into a mountain of sugar and ditch these stingy neighbors!
+    [[I don't know.. | Edgar.IDontKnow]]
+    [[Okay! | Edgar.Okay]]
+-> Why is nobody here?
+    Edgar: Nobody else here? Nonsense! They are... All already inside! You’re late! 
+    Yeah, you might miss the show, go on! Hurry! Here, take a Munchy Cone! 
+    Yes, it melted a little and I may have sat on it - don’t mind that, get going little bee!
+    [[I don't know.. | Edgar.IDontKnow]]
+===
+title: Edgar.IDontKnow
+---
+Edgar: C'mon. Don't you want to make this your best halloween ever?
+[[Okay.|Edgar.Okay]]
+[[I don't think so. | Edgar.No]]
+===
+title: Edgar.Edgarthatstheticket
+---
+Edgar: That's the ticket! Come into my tent!
+===
+title: Edgar.No
+---
+Edgar: Well. That's your loss.
+===
+title: Edgar.Okay
+---
+Edgar: Good. Good! Now lets go!
+<<ChangeScene GraveYard>>
+===
+
+title: Edgar.GraveYard
+---
+Huh? You don't want to be here?
+You just got here!
+In time my little one! Once you complete my trials you may esca- I mean leave.
+<<RaiseEvent TalkEdgarGraveYard>>
+===
+
+title:Door1
+---
+<<PlayAnimation Bobross ShowCandy>>
+<<PlayAnimation Door1 OpenDoor>>
+
+<<if visited("Door1") is false>>
+    Oh! don't you look cute in your little costume! 
+    You recieve a toothbrush.
+<<else>>
+    I already gave you something.
+<<endif>>
+<<PlayAnimation Door1 CloseDoor>>
+<<PlayAnimation Bobross HideSelf>>
+===
+title:Door2
+---
+<<PlayAnimation catgirlNPC ShowCandy>>
+<<PlayAnimation Door2 OpenDoor>>
+
+<<if visited("Door2") is false>>
+    What are you?
+    Wait no let me guess.
+    A wasp?!
+    Oh? I'm completely off? Oh well. Here you go!
+    You recieve an apple.
+<<else>>
+    I already gave you a treat!
+<<endif>>
+
+<<PlayAnimation Door2 CloseDoor>>
+<<PlayAnimation catgirlNPC HideSelf>>
+===
+title:Door3
+---
+No one answers.
+===
+title:Door4
+---
+<<PlayAnimation GrumpyNPC ShowCandy>>
+<<PlayAnimation Door4 OpenDoor>>
+
+<<if visited("Door4") is false>>
+    Yeah, yeah. Here you go begger.
+    You recieve a reciept.
+<<else>>
+    No more for you.
+<<endif>>
+<<PlayAnimation Door4 CloseDoor>>
+<<PlayAnimation GrumpyNPC HideSelf>>
+===

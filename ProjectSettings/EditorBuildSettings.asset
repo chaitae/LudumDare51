@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartGame.unity
+    guid: 1cd3c55a0b1f77b4ab89278ee1812bcf
+  - enabled: 1
+    path: Assets/Scenes/MixingStation.unity
+    guid: 43e356420110bf14584ccbb861efd7dd
+  - enabled: 1
+    path: Assets/Scenes/GraveYard.unity
+    guid: 1a1d63366a2e85247b4d7f7d3b706091
+  - enabled: 1
+    path: Assets/Scenes/LastLevel.unity
+    guid: 5ddb6b7f2f847d04793999aac321523e
+  - enabled: 1
+    path: Assets/Scenes/Teaparty.unity
+    guid: e76813a9245d5dc4ba31e8997d0a6567
+  m_configObjects: {}

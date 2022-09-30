@@ -1,0 +1,19 @@
+title: Edgar.Congrats
+---
+
+<<RaiseEvent SpecialTreasure>>
+Edgar: Congratulations! You have completed the Edgar Spooktacular trials. I now present to you my most favorite of candy!
+Oh. What?
+-Sigh-
+And a passage back to your home.
+<<PlayAnimation EndGameCanvas EndScreen>>
+<<RaiseEvent endGame>>
+===
+
+title: CandyCorn
+---
+I completed all of Edgars Spooktacular Trials and all I got was a candycorn.
+
+<<RaiseEvent rollCredits>>
+
+===

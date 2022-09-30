@@ -1,0 +1,169 @@
+fileFormatVersion: 2
+guid: 0c73bba070cca6d46af42ef949c9aa88
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: 5591126229046104487
+    second: BaseGhostArmatureB|AAction
+  - first:
+      74: -7323063445918893596
+    second: BaseGhostArmatureB|BAction
+  - first:
+      74: -1747852004866548945
+    second: BaseGhostArmatureB|CAction
+  - first:
+      74: 9155703274330070014
+    second: BaseGhostArmatureB|CircleAction
+  - first:
+      74: -6784459790810512982
+    second: BaseGhostArmatureB|EAction
+  - first:
+      74: 5661647341279303869
+    second: BaseGhostArmatureB|FAction
+  - first:
+      74: 6274951087484354707
+    second: BaseGhostArmatureB|GAction
+  - first:
+      74: -1618577530706095417
+    second: BaseGhostArmatureB|GhostBase.001Action
+  - first:
+      74: 5882232370180138140
+    second: BaseGhostArmatureB|GhostIdle
+  - first:
+      74: -8411267478622945714
+    second: BaseGhostArmatureB|GhostIdle.001
+  - first:
+      74: 2485265314434696146
+    second: BaseGhostArmatureB|GhostIdle.002
+  - first:
+      74: 7674174612898081665
+    second: BaseGhostArmatureB|GhostIdle.003
+  - first:
+      74: -6181822820862433475
+    second: BaseGhostArmatureB|GhostIdle.004
+  - first:
+      74: 4982605082125250858
+    second: BaseGhostArmatureB|GhostIdle.005
+  - first:
+      74: -4954421949981871174
+    second: BaseGhostArmatureB|GhostIdle.006
+  - first:
+      74: -2582542809139333438
+    second: BaseGhostArmatureB|GhostIdle.007
+  - first:
+      74: 1103977873302569655
+    second: BaseGhostArmatureB|GhostIdle.008
+  - first:
+      74: -4011418381531828734
+    second: BaseGhostArmatureB|GhostIdle.009
+  - first:
+      74: -8129207431548106777
+    second: BaseGhostArmatureB|GhostIdle.010
+  - first:
+      74: -2903480215524544142
+    second: BaseGhostArmatureB|GhostIdle.011
+  - first:
+      74: -7776044343451942716
+    second: BaseGhostArmatureB|GhostIdle.012
+  - first:
+      74: 5775102177574081019
+    second: BaseGhostArmatureB|GhostIdle.013
+  - first:
+      74: -897953434678201866
+    second: BaseGhostArmatureB|GhostIdle.014
+  - first:
+      74: -7226070056166811283
+    second: BaseGhostArmatureB|HAction
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,31 @@
+title: Statue.Awakened
+---
+The owl stirs and reveals a hatch underneath it. It seems to be happy you've released it.
+<<RaiseGameEvent Managers Unstatue>>
+===
+
+title: Cube
+tags: 
+colorID: 0
+position: 827,439
+---
+Sally: I don't like that cube #line:d7df49
+===
+
+title: Potion
+---
+You use the potion on the statue. It seems to be happy you've released it.
+It hops off the hatch its standing on.
+<<RaiseEvent Unstatued>>
+===
+
+title: Statue
+---
+The statues too heavy to move.
+===
+
+title: Bookshelf
+---
+Yickyacks, groomble bombs, and bip blops are the most desired of candies.
+-Edgar the Pumpkin Man
+===

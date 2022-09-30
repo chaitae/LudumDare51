@@ -1,0 +1,25 @@
+title: Farmer.Welcome
+---
+He's sleeping.
+===
+
+title: Farmer.Awake
+---
+Huh? What was that?
+
+===
+
+title: Farmer.TestActivateEvent
+---
+He woke up!
+<<RaiseEvent ScaredGhost>>
+===
+title: Chicken
+---
+The chicken wakes up the ghost.
+<<RaiseEvent ScaredGhost>>
+===
+title: Farmer.Surprised
+---
+Whoa. Last time I drink esper juice at this time.
+===
