@@ -27,8 +27,9 @@ public class Shovel : MonoBehaviour, IInteractable
     }
     bool CheckDiggables()
     {
-        LayerMask mask = LayerMask.GetMask("Player");
+        LayerMask mask = LayerMask.GetMask("Player"); //to optimize set mask on awake or maybe i want this
         RaycastHit hit;
+
         for (int i = 0; i < 3; i++)
         {
             if (Physics.Raycast(characterControls.transform.position + characterControls.transform.forward * i + Vector3.up, -Vector3.up, out hit, Mathf.Infinity,~mask))

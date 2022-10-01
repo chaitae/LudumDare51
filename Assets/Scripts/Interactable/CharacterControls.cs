@@ -83,7 +83,6 @@ public class CharacterControls : MonoBehaviour
                     {
                         interactableObj = tempInteractableObj;
 //                        interactableObj.CharacterExit(this);
-
                     }
                     else
                     {
@@ -131,7 +130,7 @@ public class CharacterControls : MonoBehaviour
         UIManager._instance.HideSpecialInteraction();
         equippedObject.transform.parent = null;
         equippedObject.transform.position = ReturnGroundInFront(equippedObject);
-        if (equippedObject.GetComponent<Rigidbody>() != null)
+        if (equippedObject.GetComponent<Rigidbody>() != null) //we should just make the rigid body not exist for any of the gameobjects
             equippedObject.GetComponent<Rigidbody>().isKinematic = false;
         equippedObject.SetActive(false);
         equippedObject = null;
@@ -147,10 +146,6 @@ public class CharacterControls : MonoBehaviour
                 equippedObject.GetComponent<Rigidbody>().isKinematic = false;
             equippedObject = null;
         }
-    }
-    public void Equip()
-    {
-
     }
     //this goes over players head
     public void PickUp(GameObject gameObject)
@@ -208,15 +203,11 @@ public class CharacterControls : MonoBehaviour
             }
             if (equippedObject != null && Input.GetKeyDown(KeyCode.E) && canUseObject)
             {
-                //interactableObj.EquippedAction(this);
                 equippedInteractable.EquippedAction(this);
-                //equippedObject.GetComponent<IInteractable>().EquippedAction(this);
             }
             if (equippedObject != null)
             {
-
                 RaycastHit hit;
-
                 if (Physics.Raycast(transform.position + transform.forward * frontOffset + Vector3.up * 1, -transform.up, out hit))
                 {
 

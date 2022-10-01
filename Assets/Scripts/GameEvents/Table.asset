@@ -10,6 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6712f33d78465c49aa63a738ee5bee9, type: 3}
-  m_Name: DialsCorrectPlacement
+  m_Name: Table
   m_EditorClassIdentifier: 
+  objectName: Table
+  isSwitch: 0
+  isOn: 0
+  previewSetting:
+  - Shake
+  - hullo
   eventRaised: 0

@@ -61,8 +61,6 @@ public class UIManager : MonoBehaviour
     public void ShowSpecialInteraction()
     {
         specialInteractionObject.SetActive(true);
-        //specialInteractionObject.SetActive(true);
-        //interactionTalkObject.SetActive(true);
     }
     public void HideSpecialInteraction()
     {
@@ -86,13 +84,39 @@ public class UIManager : MonoBehaviour
     {
         // CharacterControls.OnNearInteractable += ShowInteractionText;
     }
+    public void OnTaskChanged(GameEvent gameEvent)
+    {
+        //example Open Curtains, blow out candles
+        string fortuneTellerReadout;
+        if(gameEvent != null)
+        {
+            //first check what type of thingy it is
+            if (gameEvent.isSwitch)
+            {
+                //opn and close
+                //just make it second setting
+                fortuneTellerReadout = $"OooOooo spirit if you hear me {gameEvent.previewSetting[1]} {gameEvent.objectName}";
+            }
+            else
+            {
+                //shake table
+                Debug.Log(gameEvent);
+                fortuneTellerReadout = $"OooOooo spirit if you hear me {gameEvent.previewSetting[0]} {gameEvent.objectName}";
+
+            }
+            Debug.Log(fortuneTellerReadout);
+        }
+        //convert to task reading
+    }
     void OnEnable()
     {
+        GameEventListener.OnChangeTask += OnTaskChanged;
         // CharacterControls.OnNearInteractable += ShowInteractionText;
         // CharacterControls.OnLeaveInteractable += HideInteractionText;
     }
     void OnDisable()
     {
+        GameEventListener.OnChangeTask -= OnTaskChanged;
         // CharacterControls.OnNearInteractable -= ShowInteractionText;
         // CharacterControls.OnLeaveInteractable -= HideInteractionText;
 

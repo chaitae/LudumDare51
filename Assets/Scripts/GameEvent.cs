@@ -5,6 +5,10 @@ using UnityEngine;
 public class GameEvent : ScriptableObject // 2
 {
     private List<GameEventListener> listeners = new List<GameEventListener>(); // 3
+    public string objectName;
+    public bool isSwitch;
+    public bool isOn;
+    public string[] previewSetting;
     public bool eventRaised = false;
 
     public void Raise() // 4
