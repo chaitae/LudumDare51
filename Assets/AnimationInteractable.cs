@@ -5,7 +5,6 @@ using UnityEngine;
 public class AnimationInteractable : MonoBehaviour,IInteractable
 {
     public Animator animator;
-    bool on = false;
     [SerializeField]
     GameEvent gameEvent;
     public void CharacterEnter(CharacterControls _characterControls)
@@ -50,7 +49,9 @@ public class AnimationInteractable : MonoBehaviour,IInteractable
     {
         if(keyCode == KeyCode.E)
         {
+            gameEvent.Raise();
             gameEvent.isOn = !gameEvent.isOn;
+            //below should only occur if game event is type switch
             animator.SetBool("switch", gameEvent.isOn);
         }
     }

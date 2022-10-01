@@ -190,7 +190,7 @@ public class CharacterControls : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E) && interactableObj != null)
             {
-                Debug.Log("calling interactableobj interact");
+
                 interactableObj.Interact(this, KeyCode.E);
             }
             else if (Input.GetKeyDown(KeyCode.T) && interactableObj != null)

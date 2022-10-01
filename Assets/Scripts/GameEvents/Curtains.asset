@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Curtains
   isSwitch: 1
-  isOn: 1
+  isOn: 0
   previewSetting:
-  - Opon
+  - Open
   - Close
-  eventRaised: 0
+  eventRaised: 1

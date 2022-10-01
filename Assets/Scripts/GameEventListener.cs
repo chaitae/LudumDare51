@@ -11,6 +11,7 @@ public class GameEventListener : MonoBehaviour
     public delegate void GenericGameEventInput(GameEvent gameEvent);
     public static GenericGameEventInput OnChangeTask;
     public delegate void GenericVoid();
+    public UnityEvent onGameEndUnity;
     public static GenericVoid OnEndGame;
     public static GenericVoid OnRoundLoss;
 
@@ -19,14 +20,19 @@ public class GameEventListener : MonoBehaviour
     Dictionary<GameEvent, bool> checkGameEvents = new Dictionary<GameEvent, bool>();
     [SerializeField]
     private UnityEvent response; // 3
-    float roundTimer = 0;
-    float endRoundTime = 120f;
+    public float roundTimer = 0;
+    float endRoundTime = 30f;
     int tasksFailed = 0;
+    float elapsedtaskTimer = 0;
+    [SerializeField]
+    float endTaskTimer = 6f;
     private int tooMuchFailCount = 3;
+    public bool debug;
 
-    private void Awake()
+    private void Start()
     {
         RandomlyGenerateTask();
+
     }
     public void Update()
     {
@@ -39,14 +45,30 @@ public class GameEventListener : MonoBehaviour
                 Debug.Log(" Goodjob u won");
             }
         }
+
+        elapsedtaskTimer += Time.deltaTime;
+        if(elapsedtaskTimer >= endTaskTimer)
+        {
+            Debug.Log("Fail task");
+            tasksFailed++;
+            CheckLoss();
+            RandomlyGenerateTask();
+        }
     }
+    [ContextMenu("test invoke")]
+    void TestInvoke()
+    {
+        OnChangeTask?.Invoke(currentGameEventListen);
+    }
+
     void RandomlyGenerateTask()
     {
         int randomIndex = Random.Range(0, gameEvents.Count);
         currentGameEventListen = gameEvents[randomIndex];
-        //Debug.Log($"" + currentGameEventListen);
-        StartCoroutine("StartTimerChangeTask");
-        if(OnChangeTask != null) OnChangeTask.Invoke(currentGameEventListen);
+        OnChangeTask?.Invoke(currentGameEventListen);
+        elapsedtaskTimer = 0;
+        //if (OnChangeTask != null) OnChangeTask(currentGameEventListen);
+        //StartCoroutine("StartTimerChangeTask");
         //set timer to generate new task maybe. iunno
     }
     void CheckLoss()
@@ -56,8 +78,11 @@ public class GameEventListener : MonoBehaviour
             if(OnRoundLoss != null)
             {
                 OnRoundLoss();
-                Debug.Log("round loss");
             }
+            if(!debug)
+            onGameEndUnity.Invoke();
+            Debug.Log("round loss");
+
         }
     }
     private IEnumerator StartTimerChangeTask()
@@ -65,6 +90,7 @@ public class GameEventListener : MonoBehaviour
         StopAllCoroutines();
         yield return new WaitForSeconds(5f);
         //failed
+        Debug.Log("Fail task");
         tasksFailed++;
         CheckLoss();
         //check lose
@@ -101,6 +127,7 @@ public class GameEventListener : MonoBehaviour
     }
     void OnCompletedTask()
     {
+        Debug.Log("completed task!");
         //generate new task
         RandomlyGenerateTask();
     }

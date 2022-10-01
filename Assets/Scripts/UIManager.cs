@@ -86,6 +86,7 @@ public class UIManager : MonoBehaviour
     }
     public void OnTaskChanged(GameEvent gameEvent)
     {
+        Debug.Log("inside on task changed");
         //example Open Curtains, blow out candles
         string fortuneTellerReadout;
         if(gameEvent != null)
@@ -95,7 +96,16 @@ public class UIManager : MonoBehaviour
             {
                 //opn and close
                 //just make it second setting
-                fortuneTellerReadout = $"OooOooo spirit if you hear me {gameEvent.previewSetting[1]} {gameEvent.objectName}";
+                int index = 0;
+                if (gameEvent.isOn)
+                {
+                    index = 0;
+                }
+                else
+                {
+                    index = 1;
+                }
+                fortuneTellerReadout = $"OooOooo spirit if you hear me {gameEvent.previewSetting[index]} {gameEvent.objectName}";
             }
             else
             {
@@ -104,13 +114,15 @@ public class UIManager : MonoBehaviour
                 fortuneTellerReadout = $"OooOooo spirit if you hear me {gameEvent.previewSetting[0]} {gameEvent.objectName}";
 
             }
-            Debug.Log(fortuneTellerReadout);
+            Debug.Log(fortuneTellerReadout + " fortune teller");
+
         }
         //convert to task reading
     }
     void OnEnable()
     {
         GameEventListener.OnChangeTask += OnTaskChanged;
+
         // CharacterControls.OnNearInteractable += ShowInteractionText;
         // CharacterControls.OnLeaveInteractable += HideInteractionText;
     }

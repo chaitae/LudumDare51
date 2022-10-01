@@ -43,6 +43,10 @@ public class GameManager : MonoBehaviour
     {
         audioSource.volume = level;
     }
+    public void ResetScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     public void ChangeScene(string str)
     {
         SceneManager.LoadScene(str);

@@ -156,7 +156,7 @@ public class NPC : MonoBehaviour, IInteractable
             dialogueRunner.Add(scriptToLoad);
             if (!dialogueRunner.NodeExists(defaultTalkNode))
             {
-                Debug.LogError("Default node name doesn't exist in the script " + gameObject);
+                //Debug.LogError("Default node name doesn't exist in the script " + gameObject);
             }
         }
         dialogueUI = FindObjectOfType<Yarn.Unity.DialogueUI>();
