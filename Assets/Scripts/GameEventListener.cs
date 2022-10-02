@@ -11,39 +11,46 @@ public class GameEventListener : MonoBehaviour
     public delegate void GenericGameEventInput(GameEvent gameEvent);
     public static GenericGameEventInput OnChangeTask;
     public delegate void GenericVoid();
-    public UnityEvent onGameEndUnity;
-    public static GenericVoid OnEndGame;
+    public UnityEvent onLoseRound;
+    public static GenericVoid OnWinRound;
     public static GenericVoid OnRoundLoss;
-
+    public static GenericVoid OnWinGame;
 
     public List<GameEvent> gameEvents;
     Dictionary<GameEvent, bool> checkGameEvents = new Dictionary<GameEvent, bool>();
     [SerializeField]
     private UnityEvent response; // 3
     public float roundTimer = 0;
-    float endRoundTime = 30f;
+    float endRoundTime = 60f;
     int tasksFailed = 0;
     float elapsedtaskTimer = 0;
     [SerializeField]
-    float endTaskTimer = 6f;
+    float endTaskTimer = 20f;
     private int tooMuchFailCount = 3;
     public bool debug;
 
     private void Start()
     {
         RandomlyGenerateTask();
-
     }
     public void Update()
     {
         roundTimer += Time.deltaTime;
         if(roundTimer >= endRoundTime)
         {
-            if(OnEndGame != null)
+            if(OnWinRound != null)
             {
-                OnEndGame();
-                Debug.Log(" Goodjob u won");
+                OnWinRound();
+                //load next scene
+                //go to next scene with more objects
             }
+            if(GameStatus.level == 3)
+            {
+                OnWinGame();
+                //show win game scene
+                //win the game
+            }
+            Debug.Log(" Goodjob u won");
         }
 
         elapsedtaskTimer += Time.deltaTime;
@@ -80,22 +87,10 @@ public class GameEventListener : MonoBehaviour
                 OnRoundLoss();
             }
             if(!debug)
-            onGameEndUnity.Invoke();
+            onLoseRound.Invoke();
             Debug.Log("round loss");
 
         }
-    }
-    private IEnumerator StartTimerChangeTask()
-    {
-        StopAllCoroutines();
-        yield return new WaitForSeconds(5f);
-        //failed
-        Debug.Log("Fail task");
-        tasksFailed++;
-        CheckLoss();
-        //check lose
-        RandomlyGenerateTask();
-
     }
     private void OnEnable() // 4
     {

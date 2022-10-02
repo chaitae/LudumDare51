@@ -11,7 +11,17 @@ public class GameManager : MonoBehaviour
     public AudioSource audioSource;
     // List<GameEvent> gameEventsList = new List<GameEvent>();
     public static GameManager _instance;
-
+    [ContextMenu("inc level")]
+    public void IncLevel()
+    {
+        GameStatus.level++;
+        Debug.Log(GameStatus.level);
+    }
+    [ContextMenu("Show level")]
+    public void ShowLevel()
+    {
+        Debug.Log(GameStatus.level);
+    }
     private IEnumerator DelaySceneChangeHelper(float waitTime, string sceneName)
     {
         yield return new WaitForSeconds(1.5f);
@@ -43,6 +53,7 @@ public class GameManager : MonoBehaviour
     {
         audioSource.volume = level;
     }
+    [ContextMenu("reset scene")]
     public void ResetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
