@@ -25,7 +25,8 @@ public class DirectionGUI : MonoBehaviour
         }
         //do little type writer animation with the string here
         //blah.text = $"OoOoOo oh spirit if you hear me please {action} the {gameEvent.name}";
-        StartCoroutine("TypeWriter", $"OoOoOo oh spirit if you hear me please {action} the {gameEvent.name}");
+        StopAllCoroutines();
+        StartCoroutine("TypeWriter", $"OoOoOooh spirit if you hear me please contact me through the {gameEvent.name}");
     }
     IEnumerator TypeWriter(string str)
     {

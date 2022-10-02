@@ -20,6 +20,12 @@ public class GameEventListener : MonoBehaviour
     Dictionary<GameEvent, bool> checkGameEvents = new Dictionary<GameEvent, bool>();
     [SerializeField]
     private UnityEvent response; // 3
+    [SerializeField]
+    private UnityEvent winthing;
+    [SerializeField]
+    private UnityEvent onMissTask;
+    [SerializeField]
+    private UnityEvent passedTask;
     public float roundTimer = 0;
     float endRoundTime = 60f;
     int tasksFailed = 0;
@@ -38,19 +44,27 @@ public class GameEventListener : MonoBehaviour
         roundTimer += Time.deltaTime;
         if(roundTimer >= endRoundTime)
         {
-            if(OnWinRound != null)
-            {
-                OnWinRound();
-                //load next scene
-                //go to next scene with more objects
-            }
-            if(GameStatus.level == 3)
-            {
-                OnWinGame();
-                //show win game scene
-                //win the game
-            }
-            Debug.Log(" Goodjob u won");
+            winthing.Invoke();
+
+            //if (OnWinRound != null)
+            //{
+            //    OnWinRound();
+            //    //load next scene
+            //    //go to next scene with more objects
+            //}
+            //if(GameStatus.level == 3)
+            //{
+            //    if(OnWinGame!=null)OnWinGame();
+            //    winthing.Invoke();
+            //    //show win game scene
+            //    //win the game
+            //}
+            //if (GameStatus.level != 3)
+            //{
+            //    GameStatus.level++;
+            //    GameManager._instance.ChangeScene(GameStatus.level.ToString());
+            //}
+            //Debug.Log(" Goodjob u won");
         }
 
         elapsedtaskTimer += Time.deltaTime;
@@ -60,6 +74,7 @@ public class GameEventListener : MonoBehaviour
             tasksFailed++;
             CheckLoss();
             RandomlyGenerateTask();
+            onMissTask.Invoke();
         }
     }
     [ContextMenu("test invoke")]
@@ -96,6 +111,7 @@ public class GameEventListener : MonoBehaviour
     {
         foreach (GameEvent gameEvent in gameEvents)
         {
+            gameEvent.isOn = true;
             gameEvent.RegisterListener(this);
             checkGameEvents.Add(gameEvent, false);
         }
@@ -131,7 +147,12 @@ public class GameEventListener : MonoBehaviour
         if(currentGameEventListen == gameEvent)
         {
             OnCompletedTask();
+            passedTask.Invoke();
             //completed the thing u need
+        }
+        else
+        {
+            //wrong task
         }
         checkGameEvents[gameEvent] = true;
         if(CheckAllEventsTriggered())

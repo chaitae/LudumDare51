@@ -30,12 +30,12 @@ public class AnimationInteractable : MonoBehaviour,IInteractable
             {
                 action = gameEvent.previewSetting[1];
             }
-            UIManager._instance.ChangeInteractionText($"{action} {gameEvent.objectName}");
+            UIManager._instance.ChangeInteractionText($"{action}");
         }
         else
         {
             string action = gameEvent.previewSetting[0];
-            UIManager._instance.ChangeInteractionText($"{action} {gameEvent.objectName}");
+            UIManager._instance.ChangeInteractionText($"{action}");
 
         }
 
@@ -52,7 +52,8 @@ public class AnimationInteractable : MonoBehaviour,IInteractable
             gameEvent.Raise();
             gameEvent.isOn = !gameEvent.isOn;
             //below should only occur if game event is type switch
-            animator.SetBool("switch", gameEvent.isOn);
+            animator.SetTrigger("trigger");
+            //animator.SetBool("switch", gameEvent.isOn);
         }
     }
 

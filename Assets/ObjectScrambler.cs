@@ -19,10 +19,9 @@ public class ObjectScrambler : MonoBehaviour
     void ScramblePositions()
     {
         //maybe only scramble one position
-        //Transform temp = 
-        //Vector3 tempPosition = transformChildren[0];
         int firstRand = Random.Range(0,transformChildren.Count);
         int secondRand = Random.Range(0,transformChildren.Count);
+        int thirdRand = Random.Range(0, transformChildren.Count);
         while(secondRand == firstRand)
         {
             secondRand = Random.Range(0, transformChildren.Count);
@@ -30,7 +29,8 @@ public class ObjectScrambler : MonoBehaviour
         //swap position of a thing
         Vector3 tempPosition = transformChildren[firstRand].position;
         transformChildren[firstRand].position = transformChildren[secondRand].position;
-        transformChildren[secondRand].position = tempPosition;
+        transformChildren[secondRand].position = transformChildren[thirdRand].position;
+        transformChildren[thirdRand].position = tempPosition;
         
     }
     // Update is called once per frame

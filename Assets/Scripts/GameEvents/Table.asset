@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Table
   isSwitch: 0
-  isOn: 0
+  isOn: 1
   previewSetting:
-  - shake
+  - levitate
   - hullo
-  eventRaised: 1
+  eventRaised: 0
